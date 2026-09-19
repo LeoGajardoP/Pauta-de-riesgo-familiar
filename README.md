@@ -33,7 +33,7 @@ Lo que sí o sí hay que completar:
 
 | Dónde | Qué |
 |---|---|
-| `evento.fecha`, `evento.horaCeremonia` | mueven la cuenta regresiva y el modo en vivo (ahora: 2027-09-15, miércoles) |
+| `evento.fecha`, `evento.horaCeremonia` | mueven la cuenta regresiva y el modo en vivo (ahora: 2027-02-15, lunes) |
 | `evento.lugar`, `evento.direccion`, `evento.mapa` | portada e info práctica |
 | `nosotros.parrafos`, `nosotros.fichas` | la historia real de Leo y Dani |
 | `itinerario` | el minuto a minuto de verdad |

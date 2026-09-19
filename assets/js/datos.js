@@ -16,7 +16,7 @@ window.DATOS = {
     novia: "Dani",
     novio: "Leo",
     // Formato YYYY-MM-DD. Se usa para la cuenta regresiva y para el modo en vivo.
-    fecha: "2027-09-15",                       // miércoles 15 de septiembre de 2027
+    fecha: "2027-02-15",                       // lunes 15 de febrero de 2027
     horaCeremonia: "17:00",                    // EJEMPLO
     lugar: "Casona Las Buganvilias",           // EJEMPLO
     ciudad: "Olmué, Región de Valparaíso",     // EJEMPLO
@@ -24,7 +24,7 @@ window.DATOS = {
     // Enlace del mapa. Déjalo vacío ("") para que no aparezca el botón.
     mapa: "",                                  // EJEMPLO: pega aquí el link de Google Maps
     hashtag: "#LeoYDani",
-    codigoVestimenta: "Formal de jardín · tonos tierra, mostaza y burdeos bienvenidos", // EJEMPLO
+    codigoVestimenta: "Formal de verano · tonos tierra, mostaza y burdeos bienvenidos", // EJEMPLO
   },
 
   /* -------------------------------------------------------------- Nosotros */
@@ -53,7 +53,7 @@ window.DATOS = {
   // Ordénalo por hora. Las horas después de medianoche (00:00–05:59) se
   // entienden como de la madrugada siguiente al día de la boda.
   itinerario: [
-    { hora: "16:30", titulo: "Llegada de invitados", detalle: "Recepción con limonada de menta a la sombra de los árboles.", emoji: "🌿" },
+    { hora: "16:30", titulo: "Llegada de invitados", detalle: "Recepción con limonada de menta y sombra asegurada.", emoji: "🌿" },
     { hora: "17:00", titulo: "Ceremonia", detalle: "En el jardín de los naranjos. Puntualidad, por favor.", emoji: "💍" },
     { hora: "17:45", titulo: "Brindis y fotos", detalle: "Cóctel en la terraza mientras robamos a la familia para las fotos.", emoji: "🥂" },
     { hora: "19:00", titulo: "Cena", detalle: "Busca tu mesa en la sección Mesas de esta app.", emoji: "🍽️" },
@@ -124,7 +124,7 @@ window.DATOS = {
   /* -------------------------------------------------------- Info práctica */
   // Cada bloque es opcional: borra los que no uses.
   info: [
-    { emoji: "👗", titulo: "Vestimenta", texto: "EJEMPLO — Formal de jardín. El suelo es de pasto y tierra: los tacos de aguja lo van a pasar mal." },
+    { emoji: "👗", titulo: "Vestimenta", texto: "EJEMPLO — Formal de verano. El suelo es de pasto y tierra: los tacos de aguja lo van a pasar mal." },
     { emoji: "🚗", titulo: "Cómo llegar", texto: "EJEMPLO — Hay estacionamiento en el lugar. Si tomas, deja el auto: tenemos convenio con radiotaxi." },
     { emoji: "🎁", titulo: "Regalos", texto: "EJEMPLO — Tu presencia basta. Si insistes, habrá un buzón en la entrada." },
     { emoji: "🧒", titulo: "Niños", texto: "EJEMPLO — Bienvenidos. Hay mesa y actividades para ellos." },
