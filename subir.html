@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Subir fotos · Leo &amp; Dani</title>
+<meta name="theme-color" content="#ff4d6d">
+<link rel="icon" href="assets/img/icono.svg" type="image/svg+xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&family=Outfit:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="assets/css/estilo.css">
+<style>
+  .subir { min-height: 100dvh; display: grid; place-items: center; padding: 1.5rem 1.25rem 3rem;
+    background: radial-gradient(120% 80% at 15% 0%, rgba(255,182,39,.55), transparent 55%),
+                radial-gradient(110% 80% at 85% 10%, rgba(0,191,166,.5), transparent 58%),
+                linear-gradient(170deg, #ffd9c0, #ffeedd 50%, #d9f6f0); }
+  .subir__caja { background: #fff; border-radius: 28px; padding: clamp(1.4rem, 5vw, 2.4rem);
+    box-shadow: var(--sombra-alta); max-width: 520px; width: 100%; text-align: center; }
+  .subir__caja h1 { font-size: clamp(1.8rem, 7vw, 2.6rem); margin-bottom: .5rem; }
+  .subir__caja p.intro { color: var(--tinta-2); margin: 0 0 1.6rem; }
+  .zona { border: 3px dashed rgba(42,27,74,.2); border-radius: var(--radio); padding: 1.6rem 1rem;
+    margin-bottom: 1.2rem; }
+  .zona input[type=file] { display: none; }
+  .previas { display: grid; grid-template-columns: repeat(auto-fill, minmax(84px, 1fr)); gap: .5rem;
+    margin: 1rem 0 0; }
+  .previas figure { margin: 0; position: relative; }
+  .previas img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 12px; border: 3px solid #fff;
+    box-shadow: var(--sombra); }
+  .previas figcaption { position: absolute; inset: auto 0 0 0; font-size: .62rem; font-weight: 700;
+    background: rgba(42,27,74,.72); color: #fff; border-radius: 0 0 9px 9px; padding: .12rem; }
+  .previas .ok figcaption { background: var(--turquesa); }
+  .previas .error figcaption { background: var(--coral); }
+  .estado { font-weight: 700; margin: 1rem 0 0; min-height: 1.5em; }
+  .barra-progreso { height: 10px; border-radius: 999px; background: var(--crema-2); overflow: hidden; margin-top: .8rem; }
+  .barra-progreso span { display: block; height: 100%; width: 0; background: linear-gradient(90deg, var(--mango), var(--coral)); transition: width .25s; }
+  .aviso { background: var(--crema-2); border-radius: var(--radio-s); padding: 1rem; color: var(--tinta-2);
+    font-size: .92rem; margin-top: 1.2rem; }
+</style>
+</head>
+<body>
+<div class="subir">
+  <div class="subir__caja">
+    <p class="seccion__kicker" id="hashtag">#LeoYDani</p>
+    <h1>Sube tus fotos</h1>
+    <p class="intro">Elige las fotos que tomaste en la fiesta. Se guardan directo en nuestro álbum.</p>
+
+    <div class="zona">
+      <label class="boton boton--primario" for="archivos">📷 Elegir fotos</label>
+      <input id="archivos" type="file" accept="image/*,video/*" multiple>
+      <div class="previas" id="previas"></div>
+    </div>
+
+    <button class="boton boton--primario" id="enviar" style="width:100%" disabled>Subir</button>
+    <div class="barra-progreso" hidden id="progreso"><span id="progreso-barra"></span></div>
+    <p class="estado" id="estado"></p>
+
+    <div class="aviso" id="aviso">
+      Consejo: si estás con datos móviles y van lentas, sube primero las mejores y el resto al llegar a casa.
+      El enlace sigue funcionando después de la fiesta.
+    </div>
+
+    <p style="margin-top:1.4rem"><a href="index.html">← Volver a la boda</a></p>
+  </div>
+</div>
+
+<script src="assets/js/datos.js"></script>
+<script>
+(function () {
+  "use strict";
+  var D = window.DATOS || {};
+  var f = D.fotos || {};
+  if (D.evento && D.evento.hashtag) document.getElementById("hashtag").textContent = D.evento.hashtag;
+
+  // Dónde mandar las fotos. Si esta página la sirve el propio servidor de
+  // fotos, basta con la ruta relativa.
+  var base = (f.urlServidor || "").replace(/\/+$/, "");
+  var endpoint = (base || "") + "/api/fotos";
+
+  var input = document.getElementById("archivos");
+  var previas = document.getElementById("previas");
+  var enviar = document.getElementById("enviar");
+  var estado = document.getElementById("estado");
+  var progreso = document.getElementById("progreso");
+  var barra = document.getElementById("progreso-barra");
+  var seleccion = [];
+
+  input.addEventListener("change", function () {
+    seleccion = Array.prototype.slice.call(input.files);
+    previas.innerHTML = "";
+    seleccion.forEach(function (archivo, i) {
+      var fig = document.createElement("figure");
+      fig.dataset.indice = String(i);
+      var img = new Image();
+      img.alt = archivo.name;
+      if (archivo.type.indexOf("image/") === 0) {
+        img.src = URL.createObjectURL(archivo);
+        img.addEventListener("load", function () { URL.revokeObjectURL(img.src); });
+      }
+      fig.appendChild(img);
+      var cap = document.createElement("figcaption");
+      cap.textContent = "en espera";
+      fig.appendChild(cap);
+      previas.appendChild(fig);
+    });
+    enviar.disabled = seleccion.length === 0;
+    estado.textContent = seleccion.length
+      ? seleccion.length + (seleccion.length === 1 ? " archivo listo" : " archivos listos")
+      : "";
+  });
+
+  enviar.addEventListener("click", function () {
+    if (!seleccion.length) return;
+    enviar.disabled = true;
+    progreso.hidden = false;
+    var subidas = 0, fallidas = 0;
+
+    function marcar(i, clase, texto) {
+      var fig = previas.querySelector('figure[data-indice="' + i + '"]');
+      if (!fig) return;
+      fig.className = clase;
+      fig.querySelector("figcaption").textContent = texto;
+    }
+
+    function siguiente(i) {
+      if (i >= seleccion.length) {
+        estado.textContent = fallidas
+          ? "Subidas " + subidas + ", fallaron " + fallidas + ". Vuelve a intentarlo con las que fallaron."
+          : "¡Listo! Gracias por las " + subidas + (subidas === 1 ? " foto" : " fotos") + " 💛";
+        enviar.disabled = false;
+        return;
+      }
+      marcar(i, "", "subiendo…");
+      var datos = new FormData();
+      datos.append("foto", seleccion[i], seleccion[i].name);
+
+      fetch(endpoint, { method: "POST", body: datos })
+        .then(function (r) {
+          if (!r.ok) throw new Error("HTTP " + r.status);
+          subidas++;
+          marcar(i, "ok", "✓ subida");
+        })
+        .catch(function () {
+          fallidas++;
+          marcar(i, "error", "✗ error");
+        })
+        .then(function () {
+          barra.style.width = Math.round(((i + 1) / seleccion.length) * 100) + "%";
+          siguiente(i + 1);
+        });
+    }
+    siguiente(0);
+  });
+})();
+</script>
+</body>
+</html>

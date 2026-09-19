@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Leo &amp; Dani · Nuestra boda</title>
+<meta name="description" content="Itinerario, mesas, fotos y todo lo que necesitas saber para la boda de Leo y Dani.">
+<meta name="theme-color" content="#ff4d6d">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="assets/img/icono.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Outfit:wght@300;400;600;700&display=swap">
+<link rel="stylesheet" href="assets/css/estilo.css">
+</head>
+<body>
+
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+
+<header class="barra" id="barra">
+  <a class="barra__marca" href="#portada">
+    <span class="barra__anillos" aria-hidden="true">💐</span>
+    <span id="marca-nombres">Leo &amp; Dani</span>
+  </a>
+  <nav class="barra__nav" aria-label="Secciones">
+    <a href="#nosotros">Nosotros</a>
+    <a href="#itinerario">Itinerario</a>
+    <a href="#mesas">Mesas</a>
+    <a href="#fotos">Fotos</a>
+    <a href="#info">Info</a>
+  </nav>
+  <button class="barra__menu" id="btn-menu" aria-expanded="false" aria-controls="menu-movil">
+    <span class="sr">Abrir menú</span>
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+  </button>
+</header>
+
+<div class="menu-movil" id="menu-movil" hidden>
+  <a href="#nosotros">Nosotros</a>
+  <a href="#itinerario">Itinerario</a>
+  <a href="#mesas">Mesas</a>
+  <a href="#fotos">Fotos</a>
+  <a href="#info">Info</a>
+</div>
+
+<main id="contenido">
+
+  <!-- ============================================================ PORTADA -->
+  <section class="portada" id="portada">
+    <div class="portada__confeti" aria-hidden="true"></div>
+    <div class="portada__caja">
+      <p class="portada__antetitulo" id="portada-fecha-corta">Nos casamos</p>
+      <h1 class="portada__nombres">
+        <span id="portada-novio">Leo</span>
+        <span class="portada__amperson" aria-hidden="true">&amp;</span>
+        <span id="portada-novia">Dani</span>
+      </h1>
+      <p class="portada__lugar"><span id="portada-lugar"></span></p>
+      <p class="portada__fecha" id="portada-fecha"></p>
+
+      <div class="cuenta" id="cuenta" aria-live="polite">
+        <div class="cuenta__bloque"><strong id="c-dias">—</strong><span>días</span></div>
+        <div class="cuenta__bloque"><strong id="c-horas">—</strong><span>horas</span></div>
+        <div class="cuenta__bloque"><strong id="c-min">—</strong><span>min</span></div>
+        <div class="cuenta__bloque"><strong id="c-seg">—</strong><span>seg</span></div>
+      </div>
+      <p class="cuenta__hoy" id="cuenta-hoy" hidden></p>
+
+      <div class="portada__acciones">
+        <a class="boton boton--primario" href="#mesas">Buscar mi mesa</a>
+        <a class="boton boton--claro" href="#fotos">Subir fotos</a>
+      </div>
+    </div>
+    <div class="portada__ola" aria-hidden="true">
+      <svg viewBox="0 0 1440 90" preserveAspectRatio="none"><path d="M0 60 C 240 100, 480 10, 720 40 C 960 70, 1200 20, 1440 50 L1440 90 L0 90 Z"/></svg>
+    </div>
+  </section>
+
+  <!-- =========================================================== NOSOTROS -->
+  <section class="seccion seccion--crema" id="nosotros">
+    <div class="envoltorio">
+      <p class="seccion__kicker">Los novios</p>
+      <h2 class="seccion__titulo" id="nosotros-titulo">Leo &amp; Dani</h2>
+      <p class="seccion__bajada" id="nosotros-bajada"></p>
+
+      <div class="nosotros">
+        <div class="nosotros__foto" id="nosotros-foto">
+          <div class="nosotros__iniciales" id="nosotros-iniciales" aria-hidden="true">L&amp;D</div>
+        </div>
+        <div class="nosotros__texto" id="nosotros-parrafos"></div>
+      </div>
+
+      <ul class="fichas" id="nosotros-fichas"></ul>
+    </div>
+  </section>
+
+  <!-- ========================================================= ITINERARIO -->
+  <section class="seccion" id="itinerario">
+    <div class="envoltorio">
+      <p class="seccion__kicker">Minuto a minuto</p>
+      <h2 class="seccion__titulo">Itinerario</h2>
+      <p class="seccion__bajada">El día de la boda esta lista se ilumina sola: verás marcado lo que está pasando ahora y lo que viene.</p>
+
+      <div class="aviso-vivo" id="aviso-vivo" hidden>
+        <span class="punto" aria-hidden="true"></span>
+        <span id="aviso-vivo-texto"></span>
+      </div>
+
+      <ol class="linea" id="linea-tiempo"></ol>
+    </div>
+  </section>
+
+  <!-- ============================================================== MESAS -->
+  <section class="seccion seccion--turquesa" id="mesas">
+    <div class="envoltorio">
+      <p class="seccion__kicker">Distribución</p>
+      <h2 class="seccion__titulo">¿Dónde me siento?</h2>
+      <p class="seccion__bajada">Escribe tu nombre y te decimos la mesa. También puedes tocar cualquier mesa del plano.</p>
+
+      <form class="buscador" id="buscador" role="search" autocomplete="off">
+        <label class="sr" for="busqueda">Buscar tu nombre</label>
+        <input id="busqueda" type="search" placeholder="Escribe tu nombre…" enterkeyhint="search">
+        <button type="button" class="buscador__limpiar" id="limpiar" hidden aria-label="Limpiar búsqueda">×</button>
+      </form>
+
+      <div class="resultados" id="resultados" aria-live="polite"></div>
+
+      <div class="mesas-vista">
+        <div class="mesas-vista__cabecera">
+          <h3>Plano del salón</h3>
+          <div class="conmutador" role="group" aria-label="Forma de ver las mesas">
+            <button type="button" id="ver-plano" class="es-activo" aria-pressed="true">Plano</button>
+            <button type="button" id="ver-lista" aria-pressed="false">Lista</button>
+          </div>
+        </div>
+
+        <div class="plano" id="plano">
+          <p class="plano__escenario">Novios · escenario</p>
+          <div class="plano__lienzo" id="plano-lienzo"></div>
+          <p class="plano__entrada">Entrada</p>
+        </div>
+
+        <div class="lista-mesas" id="lista-mesas" hidden></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================== FOTOS -->
+  <section class="seccion" id="fotos">
+    <div class="envoltorio">
+      <p class="seccion__kicker">Álbum colaborativo</p>
+      <h2 class="seccion__titulo" id="fotos-titulo">Súbete al álbum</h2>
+      <p class="seccion__bajada" id="fotos-mensaje"></p>
+
+      <div class="qr-panel" id="qr-panel">
+        <div class="qr-panel__codigo" id="qr-contenedor">
+          <div class="qr-panel__pendiente" id="qr-pendiente">
+            <strong>Falta configurar el destino del QR.</strong>
+            <span>Abre <code>assets/js/datos.js</code> y completa <code>fotos.urlAlbum</code>
+              (modo álbum) o <code>fotos.urlServidor</code> (modo servidor).</span>
+          </div>
+        </div>
+        <div class="qr-panel__texto">
+          <ol class="pasos">
+            <li>Abre la cámara del teléfono.</li>
+            <li>Apúntala al código, sin tocar nada.</li>
+            <li>Toca el aviso que aparece y sube tus fotos.</li>
+          </ol>
+          <p class="qr-panel__enlace">
+            ¿No funciona la cámara? Entra a
+            <a id="qr-enlace" href="#">este enlace</a>.
+          </p>
+          <div class="qr-panel__acciones">
+            <button type="button" class="boton boton--primario" id="btn-cartel">Ver en grande (cartel)</button>
+            <button type="button" class="boton boton--claro" id="btn-imprimir">Imprimir cartel</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="mural" id="mural" hidden>
+        <h3>Lo que han subido</h3>
+        <div class="mural__rejilla" id="mural-rejilla"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================================== INFO -->
+  <section class="seccion seccion--crema" id="info">
+    <div class="envoltorio">
+      <p class="seccion__kicker">Para que no preguntes</p>
+      <h2 class="seccion__titulo">Info práctica</h2>
+      <ul class="fichas fichas--info" id="info-fichas"></ul>
+
+      <div class="lugar" id="lugar-bloque">
+        <div>
+          <h3 id="lugar-nombre"></h3>
+          <p id="lugar-direccion"></p>
+          <p id="lugar-vestimenta"></p>
+        </div>
+        <a class="boton boton--primario" id="lugar-mapa" href="#" hidden>Abrir en el mapa</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="pie">
+  <p id="pie-hashtag"></p>
+  <p class="pie__fino">Hecho con cariño para el día de <span id="pie-nombres">Leo y Dani</span>.</p>
+</footer>
+
+<!-- Cartel a pantalla completa con el QR, para proyectar o dejar en una mesa -->
+<div class="cartel" id="cartel" hidden>
+  <button class="cartel__cerrar" id="cartel-cerrar" aria-label="Cerrar cartel">×</button>
+  <div class="cartel__contenido">
+    <p class="cartel__kicker" id="cartel-kicker">#LeoYDani</p>
+    <h2 class="cartel__titulo" id="cartel-titulo">Súbete al álbum</h2>
+    <div class="cartel__qr" id="cartel-qr"></div>
+    <p class="cartel__pie" id="cartel-pie"></p>
+    <p class="cartel__url" id="cartel-url"></p>
+  </div>
+</div>
+
+<script src="assets/js/datos.js"></script>
+<script src="assets/js/qr.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

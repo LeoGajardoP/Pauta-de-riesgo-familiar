@@ -1,0 +1,8 @@
+# Fotos que suben los invitados (no van al repositorio)
+fotos-subidas/
+fotos-boda/
+
+node_modules/
+.DS_Store
+Thumbs.db
+*.log
