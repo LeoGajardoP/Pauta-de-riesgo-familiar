@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240">
+  <!-- Patrón de fondo para la portada y el cartel: florecillas y hojas sueltas
+       en los colores del moodboard. Se repite en mosaico de 240x240. -->
+  <defs>
+    <g id="flor">
+      <circle cx="0" cy="-7" r="5"/><circle cx="6.7" cy="-2.2" r="5"/>
+      <circle cx="4.1" cy="5.7" r="5"/><circle cx="-4.1" cy="5.7" r="5"/>
+      <circle cx="-6.7" cy="-2.2" r="5"/>
+    </g>
+    <path id="hoja" d="M0 0c7-9 18-11 24-9 1 7-4 17-13 20-6 2-11 0-11-11z"/>
+  </defs>
+
+  <g opacity=".85">
+    <use href="#flor" x="36"  y="34"  fill="#ce9138"/>
+    <circle cx="36" cy="34" r="3.2" fill="#8a5f1f"/>
+
+    <use href="#flor" x="176" y="58"  fill="#c4485a" transform="rotate(18 176 58)"/>
+    <circle cx="176" cy="58" r="3.2" fill="#861b2d"/>
+
+    <use href="#flor" x="96"  y="150" fill="#c0582b" transform="rotate(-22 96 150)"/>
+    <circle cx="96" cy="150" r="3.2" fill="#7d3517"/>
+
+    <use href="#flor" x="206" y="184" fill="#ce9138" transform="rotate(30 206 184)"/>
+    <circle cx="206" cy="184" r="3.2" fill="#8a5f1f"/>
+
+    <use href="#flor" x="18"  y="196" fill="#c86860" transform="rotate(12 18 196)"/>
+    <circle cx="18" cy="196" r="3" fill="#a3413c"/>
+
+    <use href="#hoja" x="0" y="0" fill="#8a8d7a" transform="translate(118 26) rotate(-35)"/>
+    <use href="#hoja" x="0" y="0" fill="#545a3c" transform="translate(52 104) rotate(148)"/>
+    <use href="#hoja" x="0" y="0" fill="#8a8d7a" transform="translate(196 122) rotate(56)"/>
+    <use href="#hoja" x="0" y="0" fill="#545a3c" transform="translate(140 214) rotate(-118)"/>
+  </g>
+</svg>

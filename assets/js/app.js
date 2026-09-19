@@ -426,7 +426,7 @@
 
     // El QR se dibuja con nuestro propio generador (assets/js/qr.js), sin
     // servicios externos: funciona aunque el salón no tenga internet.
-    var opciones = { ecc: "M", margen: 3, oscuro: "#2a1b4a", claro: "#ffffff", etiqueta: "Código QR para subir fotos" };
+    var opciones = { ecc: "M", margen: 3, oscuro: "#33261f", claro: "#ffffff", etiqueta: "Código QR para subir fotos" };
     try {
       $("#qr-contenedor").innerHTML = QR.svg(destino, opciones);
       $("#cartel-qr").innerHTML = QR.svg(destino, opciones);

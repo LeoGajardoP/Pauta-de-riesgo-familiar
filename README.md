@@ -4,6 +4,14 @@ Aplicación web para organizar y **usar en vivo** el día de la boda: itinerario
 se ilumina solo según la hora, buscador de mesas, plano del salón, sección de los
 novios y un QR para que los invitados suban fotos.
 
+Paleta tomada del moodboard de la boda, muestreada pixel a pixel de la tira de
+colores (no estimada a ojo): salvia `#8a8d7a`, mantequilla `#eed7ad`, mostaza
+`#ce9138`, terracota `#c0582b`, coral empolvado `#c86860`, frambuesa `#c4485a`,
+borgoña `#861b2d` y oliva `#545a3c`. El coral empolvado no alcanza 4.5:1 de
+contraste con texto blanco ni oscuro, así que se usa solo como adorno y nunca
+como fondo de un texto; los fondos con texto usan la terracota oscurecida
+(`#ab4c23`). Todo vive en los tokens de `:root` en `assets/css/estilo.css`.
+
 Sin frameworks, sin `npm install`, sin build. Son archivos estáticos: se abren
 directo en el navegador o se publican en cualquier hosting.
 
@@ -25,7 +33,7 @@ Lo que sí o sí hay que completar:
 
 | Dónde | Qué |
 |---|---|
-| `evento.fecha`, `evento.horaCeremonia` | mueven la cuenta regresiva y el modo en vivo |
+| `evento.fecha`, `evento.horaCeremonia` | mueven la cuenta regresiva y el modo en vivo (ahora: 2027-09-15, miércoles) |
 | `evento.lugar`, `evento.direccion`, `evento.mapa` | portada e info práctica |
 | `nosotros.parrafos`, `nosotros.fichas` | la historia real de Leo y Dani |
 | `itinerario` | el minuto a minuto de verdad |
@@ -39,7 +47,7 @@ Lo que sí o sí hay que completar:
 - **Portada** con cuenta regresiva en vivo; el mismo día cambia a "¡Hoy es el día!".
 - **Nosotros**: foto (o degradado con las iniciales si aún no hay foto), la
   historia en párrafos y tarjetitas cortas.
-- **Itinerario**: el día del evento marca en rosa lo que está pasando **ahora**,
+- **Itinerario**: el día del evento marca en terracota y frambuesa lo que está pasando **ahora**,
   atenúa lo ya pasado, etiqueta lo que viene y muestra arriba un aviso del tipo
   *"Ahora: Primer baile · en 20 min, Torta y postres"*. Se refresca solo cada 30 s.
 - **Mesas**: buscador que ignora tildes y mayúsculas (escribir `jose` encuentra

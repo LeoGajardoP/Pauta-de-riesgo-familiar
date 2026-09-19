@@ -4,8 +4,8 @@
   "description": "Itinerario, mesas y álbum de fotos de la boda.",
   "start_url": "./index.html",
   "display": "standalone",
-  "background_color": "#fff7ec",
-  "theme_color": "#ff4d6d",
+  "background_color": "#faf2e4",
+  "theme_color": "#861b2d",
   "lang": "es",
   "icons": [
     { "src": "assets/img/icono.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
