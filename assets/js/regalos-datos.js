@@ -36,64 +36,76 @@ window.REGALOS = {
   },
 
   /* ---------------------------------------------------------- Experiencias */
-  // monto en pesos chilenos. Puedes poner cualquier cantidad de experiencias.
+  // Montos en pesos chilenos, tal como los definieron ustedes.
   // Si prefieres no mostrar el monto de alguna, pon monto: null.
+  // aporteParcial: true  ->  avisa que ese regalo se junta entre varios.
+  // Las descripciones las escribí yo: cámbialas a gusto.
   experiencias: [
     {
       id: "cena",
       emoji: "🍷",
-      titulo: "Una cena romántica",
+      titulo: "Cena romántica",
       descripcion: "De esas con mantel largo, mesa junto a la ventana y nadie mirando el celular.",
-      monto: 90000,          // EJEMPLO
-    },
-    {
-      id: "sur",
-      emoji: "🌲",
-      titulo: "Un viaje al sur",
-      descripcion: "Cabaña, lluvia en el techo, termas y un libro que no vamos a terminar.",
-      monto: 250000,         // EJEMPLO
+      monto: 90000,
     },
     {
       id: "estanque",
       emoji: "⛽",
-      titulo: "La llenada del estanque",
-      descripcion: "El regalo menos romántico y el más necesario: lo que nos lleva a todos lados.",
-      monto: 45000,          // EJEMPLO
+      titulo: "Llenada de estanque",
+      descripcion: "El regalo menos romántico y el más necesario. Sin esto no llegamos a ninguno de los otros.",
+      monto: 80000,
     },
     {
-      id: "desayuno",
-      emoji: "🥐",
-      titulo: "Desayuno en la cama",
-      descripcion: "Un domingo entero sin levantarse, con café de verdad y pan recién comprado.",
-      monto: 30000,          // EJEMPLO
+      id: "luna",
+      emoji: "🚀",
+      titulo: "Viaje a la Luna",
+      descripcion: "Sí, con ese presupuesto. Si alcanza para menos, lo dejamos en luna de miel y nadie se entera.",
+      monto: 100000,
     },
     {
-      id: "masaje",
-      emoji: "💆",
-      titulo: "Un día de spa para los dos",
-      descripcion: "Después de organizar un matrimonio, esto es casi una indicación médica.",
-      monto: 120000,         // EJEMPLO
+      id: "magister",
+      emoji: "🎓",
+      titulo: "Magíster en Salud Pública",
+      descripcion: "El regalo más responsable de la lista. También el que más noches en vela va a costar.",
+      monto: 5000000,
+      aporteParcial: true,
     },
     {
-      id: "concierto",
-      emoji: "🎸",
-      titulo: "Entradas a un concierto",
-      descripcion: "Ver en vivo a esa banda que escuchamos en cada viaje en auto.",
-      monto: 80000,          // EJEMPLO
+      id: "camioneta",
+      emoji: "🛻",
+      titulo: "Toyota 4Runner TRD PRO",
+      descripcion: "Para llegar a la parcela. Si no se completa, con la llenada de estanque nos conformamos.",
+      monto: 45990000,
+      aporteParcial: true,
     },
     {
-      id: "fotos",
+      id: "camara",
       emoji: "📷",
-      titulo: "Una sesión de fotos",
-      descripcion: "Para tener una foto juntos que no sea una selfie con el brazo estirado.",
-      monto: 150000,         // EJEMPLO
+      titulo: "Cámara de fotos",
+      descripcion: "Para dejar de depender del celular cada vez que pasa algo que vale la pena.",
+      monto: 300000,
     },
     {
-      id: "arbol",
-      emoji: "🌳",
-      titulo: "Un árbol para la casa",
-      descripcion: "Uno que plantemos el primer año y nos dé sombra en veinte más.",
-      monto: 35000,          // EJEMPLO
+      id: "excursion",
+      emoji: "🥾",
+      titulo: "Excursión",
+      descripcion: "Un día entero caminando, sin señal, con sándwich aplastado en la mochila.",
+      monto: 150000,
+    },
+    {
+      id: "sesion",
+      emoji: "📸",
+      titulo: "Sesión de fotos",
+      descripcion: "Para tener una foto juntos que no sea una selfie con el brazo estirado.",
+      monto: 150000,
+    },
+    {
+      id: "parcela",
+      emoji: "🏡",
+      titulo: "Parcela en Villarrica",
+      descripcion: "El plan a largo plazo: lluvia en el techo, volcán al frente y nadie alrededor.",
+      monto: 40000000,
+      aporteParcial: true,
     },
   ],
 

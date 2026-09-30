@@ -79,8 +79,13 @@
 
     if (exp.monto != null) {
       var monto = crear("div", "regalo__monto", pesos.format(exp.monto));
-      monto.appendChild(crear("span", null, " aprox."));
+      monto.appendChild(crear("span", null, exp.aporteParcial ? " en total" : " aprox."));
       li.appendChild(monto);
+    }
+
+    // Los regalos caros no se esperan completos de una persona: se avisa.
+    if (exp.aporteParcial) {
+      li.appendChild(crear("p", "regalo__parcial", "Este se junta entre varios: aporta lo que quieras."));
     }
 
     var boton = crear("button", "boton boton--primario regalo__boton", "Aportar a esto");

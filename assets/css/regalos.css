@@ -74,6 +74,11 @@
 }
 .regalo__monto span { font-family: var(--cuerpo); font-size: .8rem; color: var(--tinta-2); font-weight: 600; }
 
+.regalo__parcial {
+  margin: -.2rem 0 0; font-size: .82rem; font-weight: 600; color: var(--terracota-osc);
+  background: var(--crema); border-radius: 10px; padding: .4rem .6rem;
+}
+
 .regalo__boton { width: 100%; margin-top: .3rem; }
 
 .regalo.es-elegido {
