@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Leo &amp; Dani · Lista de regalos</title>
+<meta name="description" content="Regálanos una experiencia: cena romántica, viaje al sur, la llenada del estanque y más.">
+<meta name="theme-color" content="#861b2d">
+<link rel="icon" href="assets/img/icono.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Outfit:wght@300;400;600;700&display=swap">
+<link rel="stylesheet" href="assets/css/estilo.css">
+<link rel="stylesheet" href="assets/css/regalos.css">
+</head>
+<body class="pagina-regalos">
+
+<a class="saltar" href="#lista">Saltar a la lista</a>
+
+<header class="portada portada--regalos">
+  <div class="portada__confeti" aria-hidden="true"></div>
+  <div class="portada__caja">
+    <p class="portada__antetitulo" id="r-kicker">Lista de regalos</p>
+    <h1 class="regalos__titulo" id="r-titulo">Regálanos una experiencia</h1>
+    <p class="regalos__bajada" id="r-bajada"></p>
+    <p class="regalos__nombres" id="r-nombres"></p>
+    <div class="portada__acciones">
+      <a class="boton boton--primario" href="#lista">Ver las experiencias</a>
+      <a class="boton boton--claro" href="#aportar">Cómo aportar</a>
+    </div>
+  </div>
+  <div class="portada__ola" aria-hidden="true">
+    <svg viewBox="0 0 1440 90" preserveAspectRatio="none"><path d="M0 60 C 240 100, 480 10, 720 40 C 960 70, 1200 20, 1440 50 L1440 90 L0 90 Z"/></svg>
+  </div>
+</header>
+
+<main>
+
+  <!-- ====================================================== EXPERIENCIAS -->
+  <section class="seccion" id="lista">
+    <div class="envoltorio">
+      <h2 class="sr">Experiencias</h2>
+      <p class="regalos__nota" id="r-nota"></p>
+      <ul class="regalos" id="r-lista"></ul>
+    </div>
+  </section>
+
+  <!-- =========================================================== APORTAR -->
+  <section class="seccion seccion--salvia" id="aportar">
+    <div class="envoltorio">
+      <p class="seccion__kicker">Cómo aportar</p>
+      <h2 class="seccion__titulo">Dos formas, la que te acomode</h2>
+
+      <p class="elegido" id="r-elegido" hidden>
+        Estás aportando a <strong id="r-elegido-nombre"></strong>.
+        <button type="button" class="elegido__quitar" id="r-elegido-quitar">cambiar</button>
+      </p>
+
+      <div class="formas">
+
+        <!-- ------------------------------------------------ transferencia -->
+        <article class="forma">
+          <h3 class="forma__titulo"><span aria-hidden="true">🏦</span> Transferencia</h3>
+
+          <div id="r-datos-publicos">
+            <dl class="datos" id="r-datos"></dl>
+            <div class="datos__acciones">
+              <button type="button" class="boton boton--primario" id="r-copiar-todo">Copiar todos los datos</button>
+            </div>
+            <p class="aviso-copia" id="r-aviso" role="status" aria-live="polite"></p>
+
+            <h4 class="forma__sub">Ahora entra a tu banco</h4>
+            <p class="forma__texto">
+              Toca tu banco y se abre su sitio en otra pestaña. Ahí pegas los datos que
+              acabas de copiar. <strong>Este botón solo abre la página del banco:</strong>
+              desde aquí no viaja ningún dato ni se transfiere nada.
+            </p>
+            <div class="bancos" id="r-bancos"></div>
+          </div>
+
+          <div id="r-datos-privados" hidden>
+            <p class="forma__texto" id="r-contacto"></p>
+          </div>
+        </article>
+
+        <!-- -------------------------------------------------- con tarjeta -->
+        <article class="forma" id="r-forma-tarjeta" hidden>
+          <h3 class="forma__titulo"><span aria-hidden="true">💳</span> Con tarjeta</h3>
+          <p class="forma__texto" id="r-tarjeta-nota"></p>
+          <p class="forma__texto forma__texto--fino" id="r-tarjeta-proveedor"></p>
+          <a class="boton boton--primario" id="r-tarjeta-boton" href="#" target="_blank" rel="noopener">Pagar con tarjeta</a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ CIERRE -->
+  <section class="seccion seccion--cierre">
+    <div class="envoltorio cierre">
+      <h2 class="seccion__titulo" id="r-cierre-titulo"></h2>
+      <p id="r-cierre-texto"></p>
+      <p class="cierre__volver"><a id="r-volver" href="#" hidden>← Volver a la boda</a></p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="pie">
+  <p id="r-pie-hashtag"></p>
+  <p class="pie__fino">Gracias por estar.</p>
+</footer>
+
+<script src="assets/js/regalos-datos.js"></script>
+<script src="assets/js/regalos.js"></script>
+</body>
+</html>

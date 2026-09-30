@@ -1,0 +1,169 @@
+/* ===========================================================================
+   regalos.css — estilos propios de la lista de regalos.
+   Hereda toda la paleta y los componentes de estilo.css.
+   =========================================================================== */
+
+.pagina-regalos { padding-top: 0; }
+
+.portada--regalos {
+  padding-block: clamp(2.6rem, 8vw, 5rem) clamp(4.5rem, 9vw, 6.5rem);
+}
+
+/* Aquí el bloque de texto es más alto que en la portada de la boda, así que el
+   velo crema tiene que abarcar más para que el párrafo no pelee con el patrón. */
+.portada--regalos .portada__caja::before {
+  background: radial-gradient(76% 68% at 50% 48%,
+    rgba(250, 242, 228, .9) 0%, rgba(250, 242, 228, .66) 58%, rgba(250, 242, 228, 0) 84%);
+}
+
+.regalos__titulo {
+  font-size: clamp(2.3rem, 8vw, 4.2rem);
+  color: var(--tinta);
+  text-wrap: balance;
+  margin-bottom: .9rem;
+}
+
+.regalos__bajada {
+  max-width: 54ch; margin: 0 auto 1.1rem; color: var(--tinta-2); font-size: 1.05rem;
+}
+
+.regalos__nombres {
+  font-family: var(--display); font-size: 1.15rem; color: var(--borgona);
+  margin: 0 0 1.6rem;
+}
+
+.regalos__nota {
+  background: rgba(255,255,255,.7); border-left: 6px solid var(--mostaza);
+  border-radius: 0 var(--radio-s) var(--radio-s) 0;
+  padding: .9rem 1.2rem; color: var(--tinta-2); max-width: 62ch; margin: 0 0 2.2rem;
+}
+
+/* ------------------------------------------------------------ Las tarjetas */
+.regalos {
+  list-style: none; margin: 0; padding: 0;
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(258px, 1fr)); gap: 1.1rem;
+}
+
+.regalo {
+  background: var(--blanco); border-radius: var(--radio);
+  padding: 1.4rem 1.4rem 1.2rem;
+  box-shadow: var(--sombra);
+  display: flex; flex-direction: column; gap: .55rem;
+  border-top: 6px solid var(--mostaza);
+  transition: transform .18s, box-shadow .18s;
+}
+.regalo:nth-child(6n+2) { border-top-color: var(--terracota); }
+.regalo:nth-child(6n+3) { border-top-color: var(--oliva); }
+.regalo:nth-child(6n+4) { border-top-color: var(--frambuesa); }
+.regalo:nth-child(6n+5) { border-top-color: var(--coral); }
+.regalo:nth-child(6n+6) { border-top-color: var(--borgona); }
+.regalo:hover { transform: translateY(-3px); box-shadow: var(--sombra-alta); }
+
+.regalo--libre {
+  background: linear-gradient(150deg, var(--mantequilla), #fdf6e6);
+  border-top-color: var(--borgona);
+}
+
+.regalo__emoji { font-size: 2.1rem; line-height: 1; }
+.regalo__titulo { font-family: var(--display); font-size: 1.35rem; }
+.regalo__texto { margin: 0; color: var(--tinta-2); font-size: .96rem; flex: 1; }
+
+.regalo__monto {
+  font-family: var(--display); font-size: 1.5rem; color: var(--borgona);
+  font-variant-numeric: tabular-nums;
+}
+.regalo__monto span { font-family: var(--cuerpo); font-size: .8rem; color: var(--tinta-2); font-weight: 600; }
+
+.regalo__boton { width: 100%; margin-top: .3rem; }
+
+.regalo.es-elegido {
+  outline: 4px solid var(--borgona); outline-offset: 3px;
+}
+
+/* --------------------------------------------------------- Cómo aportar */
+.elegido {
+  display: inline-flex; align-items: center; gap: .7rem; flex-wrap: wrap;
+  background: var(--borgona); color: #fff; font-weight: 600;
+  border-radius: 999px; padding: .6rem 1.2rem; margin: 0 0 1.6rem;
+}
+.elegido strong { font-weight: 800; }
+.elegido__quitar {
+  font: inherit; font-weight: 700; background: rgba(255,255,255,.22); color: #fff;
+  border: 0; border-radius: 999px; padding: .2rem .8rem; cursor: pointer;
+}
+.elegido__quitar:hover { background: rgba(255,255,255,.35); }
+
+.formas {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.2rem;
+  align-items: start;
+}
+
+.forma {
+  background: var(--blanco); border-radius: var(--radio);
+  padding: clamp(1.2rem, 3.5vw, 1.9rem); box-shadow: var(--sombra);
+}
+.forma__titulo { font-size: 1.5rem; margin-bottom: .9rem; }
+.forma__sub {
+  font-family: var(--cuerpo); font-size: .78rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: .14em; color: var(--tinta-2); margin: 1.8rem 0 .5rem;
+}
+.forma__texto { color: var(--tinta-2); margin: 0 0 1rem; font-size: .96rem; }
+.forma__texto--fino { font-size: .85rem; }
+
+/* ------------------------------------------------------- Datos bancarios */
+.datos { margin: 0; display: grid; gap: .5rem; }
+
+.dato {
+  display: flex; align-items: center; justify-content: space-between; gap: .8rem;
+  background: var(--crema); border-radius: var(--radio-s); padding: .6rem .7rem .6rem 1rem;
+}
+.dato__texto { min-width: 0; }
+.dato dt {
+  font-size: .68rem; text-transform: uppercase; letter-spacing: .13em;
+  font-weight: 700; color: var(--tinta-2);
+}
+.dato dd {
+  margin: 0; font-weight: 600; font-size: 1.02rem; word-break: break-word;
+  font-variant-numeric: tabular-nums;
+}
+.dato__copiar {
+  flex: none; font: inherit; font-size: .8rem; font-weight: 700; cursor: pointer;
+  background: var(--crema-2); color: var(--tinta); border: 2px solid transparent;
+  border-radius: 999px; padding: .45rem .9rem; min-height: 40px;
+}
+.dato__copiar:hover { background: var(--mantequilla); }
+.dato__copiar.es-copiado { background: var(--oliva); color: #fff; }
+
+.datos__acciones { margin-top: 1rem; }
+.datos__acciones .boton { width: 100%; }
+
+.aviso-copia { min-height: 1.4em; margin: .6rem 0 0; font-weight: 600; color: var(--oliva); }
+.aviso-copia.es-error { color: var(--borgona); }
+
+/* ------------------------------------------------------------- Bancos */
+.bancos { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: .5rem; }
+
+.banco {
+  display: flex; align-items: center; justify-content: space-between; gap: .4rem;
+  text-decoration: none; font-weight: 600; font-size: .92rem;
+  background: var(--crema); color: var(--tinta);
+  border: 2px solid rgba(58,46,38,.1); border-radius: var(--radio-s);
+  padding: .7rem .9rem; min-height: 48px;
+  transition: background .15s, border-color .15s, transform .15s;
+}
+.banco:hover { background: var(--mantequilla); border-color: var(--mostaza); transform: translateY(-2px); }
+.banco::after { content: "↗"; color: var(--tinta-2); font-size: .85rem; }
+
+/* ------------------------------------------------------------- Cierre */
+.seccion--cierre { background: var(--crema-2); text-align: center; }
+.cierre p { max-width: 54ch; margin-inline: auto; color: var(--tinta-2); }
+.cierre__volver { margin-top: 1.6rem; }
+
+@media (max-width: 520px) {
+  /* Apilar el botón bajo cada dato hacía la lista larguísima en el teléfono:
+     se mantiene al lado, solo más compacto. */
+  .dato { gap: .6rem; padding: .55rem .6rem .55rem .85rem; }
+  .dato dd { font-size: .96rem; }
+  .dato__copiar { padding: .4rem .75rem; font-size: .76rem; }
+  .bancos { grid-template-columns: repeat(auto-fill, minmax(132px, 1fr)); }
+}

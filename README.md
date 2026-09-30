@@ -130,6 +130,80 @@ acabaron las subidas. Déjalo enchufado y con la suspensión desactivada.
 
 ---
 
+## Lista de regalos de experiencia
+
+[`regalos.html`](regalos.html) es una página aparte, con la misma paleta, que
+muestra las experiencias que se pueden regalar y cómo aportar. Se edita en
+[`assets/js/regalos-datos.js`](assets/js/regalos-datos.js).
+
+- **Experiencias**: título, descripción, emoji y monto aproximado (formateado en
+  pesos chilenos). Añade o quita las que quieras.
+- **Aporte libre**, para quien no quiera elegir una en particular.
+- Al tocar *Aportar a esto*, el regalo elegido se escribe en el **comentario de
+  la transferencia**, junto con el nombre que el invitado escriba. Así ustedes
+  saben quién regaló qué sin preguntar.
+- **Datos para transferir** con un botón de copiar por campo y uno que copia
+  todo junto.
+- **Botones de banco** que abren el sitio del banco elegido en otra pestaña.
+
+### Qué hacen y qué NO hacen los botones de banco
+
+Abren la página del banco. Nada más. No transfieren, no rellenan el formulario y
+no envían ningún dato desde esta página: el invitado entra a su banco y pega lo
+que copió. **Los bancos chilenos no ofrecen una forma pública y estable de
+prellenar una transferencia desde fuera**, así que cualquier cosa que prometa
+eso estaría inventada.
+
+⚠️ **Las direcciones de los bancos que vienen en el archivo las escribí de
+memoria y no pude comprobarlas**: la red del entorno donde trabajo bloquea los
+sitios de bancos (devuelven 403 en el proxy). Revísalas desde tu computador
+antes de publicar:
+
+```bash
+node tools/revisar-enlaces.mjs
+```
+
+Comprueba cada enlace configurado y te dice cuáles no responden. Que responda no
+garantiza que sea la página correcta: ábrela una vez para confirmarlo.
+
+### Cobrar con tarjeta (Webpay y compañía)
+
+La página **no procesa pagos y no puede hacerlo**: es HTML estático. Lo único que
+hace es abrir un enlace de pago externo que tú configures en
+`pagoTarjeta.url`. Mientras esté vacío, la sección de tarjeta ni siquiera
+aparece.
+
+Para tener ese enlace hay que contratarlo con alguien. Lo que encontré (y que
+conviene que confirmes tú, porque estas condiciones cambian):
+
+| Opción | Qué es | Ojo con |
+|---|---|---|
+| [Link de Pago Webpay.cl](https://publico.transbank.cl/link-de-pago) (Transbank) | Enlace de pago con tarjetas de crédito, débito (Redcompra) y prepago, **sin necesidad de tener sitio web** | Es un contrato de comercio: piden RUT, actividad económica y cuenta bancaria. Sin costo de mantención, solo comisión por venta. Activación de 24 a 72 horas hábiles tras firmar |
+| [Flow](https://www.flow.cl) | Agregador; genera enlaces de pago y procesa Webpay entre otros medios | Cobra comisión sobre cada pago |
+| [Mercado Pago](https://www.mercadopago.cl) | Enlaces y botones de pago sin programar | Tiene límites y condiciones tributarias para persona natural |
+| [Khipu](https://khipu.com) | Cobro por **transferencia**, no por tarjeta | Comisión baja, pero con tope por cobro para cuentas de persona natural |
+
+Dos advertencias honestas antes de que te metas en esto:
+
+1. Todo esto es infraestructura pensada para comercios. Para un matrimonio puede
+   ser más lío que beneficio: contrato, comisiones y plata que llega a una cuenta
+   con respaldo de ventas. La transferencia simple no cobra comisión a nadie.
+2. **No pude abrir directamente las páginas de Transbank desde aquí** (la red del
+   entorno las bloquea), así que lo de arriba viene de resultados de búsqueda,
+   no de leer su sitio yo mismo. Antes de contratar, léelo tú.
+
+### Antes de publicar esta página
+
+- [ ] Reemplazar **todos** los datos bancarios de ejemplo (mientras digan
+      `EJEMPLO` y `0000`, nadie puede transferir).
+- [ ] Revisar los montos: son inventados como ejemplo, no cotizaciones.
+- [ ] Correr `node tools/revisar-enlaces.mjs` y arreglar lo que falle.
+- [ ] Decidir a conciencia que **el número de cuenta va a quedar público** para
+      cualquiera que tenga el enlace. Si prefieres que no, pon
+      `transferencia.publica: false` y la página pedirá que les escriban a ustedes.
+
+---
+
 ## Publicarlo
 
 ### GitHub Pages (lo más simple para tener una URL real)
@@ -204,19 +278,24 @@ página de subida y el modo en vivo del itinerario simulando la hora del evento.
 ## Estructura
 
 ```
-index.html                  la app
+index.html                  la app de la boda
+regalos.html                lista de regalos de experiencia
 subir.html                  página a la que llega el invitado desde el QR (modo servidor)
 manifest.webmanifest        para instalarla en el teléfono
 sw.js                       caché offline
 assets/
-  css/estilo.css            todo el estilo
-  js/datos.js               👈 lo único que hay que editar
+  css/estilo.css            estilo común (paleta y componentes)
+  css/regalos.css           estilo propio de la lista de regalos
+  js/datos.js               👈 datos de la boda
+  js/regalos-datos.js       👈 datos de la lista de regalos
+  js/regalos.js             lógica de la lista de regalos
   js/qr.js                  generador de QR propio
   js/app.js                 lógica de la página
   img/icono.svg
 servidor-fotos/servidor.mjs servidor opcional para recibir fotos
 tools/verificar-qr.mjs      verificación del QR
 tools/probar-servidor.mjs   pruebas del servidor
+tools/revisar-enlaces.mjs   comprueba los enlaces de la lista de regalos
 ```
 
 ---
