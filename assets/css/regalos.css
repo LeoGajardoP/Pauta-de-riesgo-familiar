@@ -12,8 +12,8 @@
 /* Aquí el bloque de texto es más alto que en la portada de la boda, así que el
    velo crema tiene que abarcar más para que el párrafo no pelee con el patrón. */
 .portada--regalos .portada__caja::before {
-  background: radial-gradient(76% 68% at 50% 48%,
-    rgba(250, 242, 228, .9) 0%, rgba(250, 242, 228, .66) 58%, rgba(250, 242, 228, 0) 84%);
+  background: radial-gradient(80% 72% at 50% 48%,
+    rgba(252, 250, 251, .95) 0%, rgba(252, 250, 251, .78) 56%, rgba(252, 250, 251, 0) 88%);
 }
 
 .regalos__titulo {
@@ -24,16 +24,16 @@
 }
 
 .regalos__bajada {
-  max-width: 54ch; margin: 0 auto 1.1rem; color: var(--tinta-2); font-size: 1.05rem;
+  max-width: 54ch; margin: 0 auto 1.1rem; color: var(--tinta); font-size: 1.05rem;
 }
 
 .regalos__nombres {
-  font-family: var(--display); font-size: 1.15rem; color: var(--borgona);
+  font-family: var(--display); font-size: 1.15rem; color: var(--fucsia-osc);
   margin: 0 0 1.6rem;
 }
 
 .regalos__nota {
-  background: rgba(255,255,255,.7); border-left: 6px solid var(--mostaza);
+  background: rgba(255,255,255,.7); border-left: 6px solid var(--amarillo);
   border-radius: 0 var(--radio-s) var(--radio-s) 0;
   padding: .9rem 1.2rem; color: var(--tinta-2); max-width: 62ch; margin: 0 0 2.2rem;
 }
@@ -49,19 +49,19 @@
   padding: 1.4rem 1.4rem 1.2rem;
   box-shadow: var(--sombra);
   display: flex; flex-direction: column; gap: .55rem;
-  border-top: 6px solid var(--mostaza);
+  border-top: 6px solid var(--amarillo);
   transition: transform .18s, box-shadow .18s;
 }
-.regalo:nth-child(6n+2) { border-top-color: var(--terracota); }
-.regalo:nth-child(6n+3) { border-top-color: var(--oliva); }
-.regalo:nth-child(6n+4) { border-top-color: var(--frambuesa); }
-.regalo:nth-child(6n+5) { border-top-color: var(--coral); }
-.regalo:nth-child(6n+6) { border-top-color: var(--borgona); }
+.regalo:nth-child(6n+2) { border-top-color: var(--naranja); }
+.regalo:nth-child(6n+3) { border-top-color: var(--bosque); }
+.regalo:nth-child(6n+4) { border-top-color: var(--coral); }
+.regalo:nth-child(6n+5) { border-top-color: var(--salvia); }
+.regalo:nth-child(6n+6) { border-top-color: var(--fucsia); }
 .regalo:hover { transform: translateY(-3px); box-shadow: var(--sombra-alta); }
 
 .regalo--libre {
-  background: linear-gradient(150deg, var(--mantequilla), #fdf6e6);
-  border-top-color: var(--borgona);
+  background: linear-gradient(150deg, var(--amarillo-claro), #fffdf0);
+  border-top-color: var(--fucsia);
 }
 
 .regalo__emoji { font-size: 2.1rem; line-height: 1; }
@@ -69,26 +69,26 @@
 .regalo__texto { margin: 0; color: var(--tinta-2); font-size: .96rem; flex: 1; }
 
 .regalo__monto {
-  font-family: var(--display); font-size: 1.5rem; color: var(--borgona);
+  font-family: var(--display); font-size: 1.5rem; color: var(--fucsia);
   font-variant-numeric: tabular-nums;
 }
 .regalo__monto span { font-family: var(--cuerpo); font-size: .8rem; color: var(--tinta-2); font-weight: 600; }
 
 .regalo__parcial {
-  margin: -.2rem 0 0; font-size: .82rem; font-weight: 600; color: var(--terracota-osc);
+  margin: -.2rem 0 0; font-size: .82rem; font-weight: 600; color: var(--naranja-osc);
   background: var(--crema); border-radius: 10px; padding: .4rem .6rem;
 }
 
 .regalo__boton { width: 100%; margin-top: .3rem; }
 
 .regalo.es-elegido {
-  outline: 4px solid var(--borgona); outline-offset: 3px;
+  outline: 4px solid var(--fucsia); outline-offset: 3px;
 }
 
 /* --------------------------------------------------------- Cómo aportar */
 .elegido {
   display: inline-flex; align-items: center; gap: .7rem; flex-wrap: wrap;
-  background: var(--borgona); color: #fff; font-weight: 600;
+  background: var(--fucsia); color: #fff; font-weight: 600;
   border-radius: 999px; padding: .6rem 1.2rem; margin: 0 0 1.6rem;
 }
 .elegido strong { font-weight: 800; }
@@ -136,14 +136,14 @@
   background: var(--crema-2); color: var(--tinta); border: 2px solid transparent;
   border-radius: 999px; padding: .45rem .9rem; min-height: 40px;
 }
-.dato__copiar:hover { background: var(--mantequilla); }
-.dato__copiar.es-copiado { background: var(--oliva); color: #fff; }
+.dato__copiar:hover { background: var(--amarillo-claro); }
+.dato__copiar.es-copiado { background: var(--bosque); color: #fff; }
 
 .datos__acciones { margin-top: 1rem; }
 .datos__acciones .boton { width: 100%; }
 
-.aviso-copia { min-height: 1.4em; margin: .6rem 0 0; font-weight: 600; color: var(--oliva); }
-.aviso-copia.es-error { color: var(--borgona); }
+.aviso-copia { min-height: 1.4em; margin: .6rem 0 0; font-weight: 600; color: var(--bosque); }
+.aviso-copia.es-error { color: var(--fucsia); }
 
 /* ------------------------------------------------------------- Bancos */
 .bancos { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: .5rem; }
@@ -152,11 +152,11 @@
   display: flex; align-items: center; justify-content: space-between; gap: .4rem;
   text-decoration: none; font-weight: 600; font-size: .92rem;
   background: var(--crema); color: var(--tinta);
-  border: 2px solid rgba(58,46,38,.1); border-radius: var(--radio-s);
+  border: 2px solid rgba(30, 58, 38, .1); border-radius: var(--radio-s);
   padding: .7rem .9rem; min-height: 48px;
   transition: background .15s, border-color .15s, transform .15s;
 }
-.banco:hover { background: var(--mantequilla); border-color: var(--mostaza); transform: translateY(-2px); }
+.banco:hover { background: var(--amarillo-claro); border-color: var(--amarillo); transform: translateY(-2px); }
 .banco::after { content: "↗"; color: var(--tinta-2); font-size: .85rem; }
 
 /* ------------------------------------------------------------- Cierre */

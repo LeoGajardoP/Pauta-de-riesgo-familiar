@@ -4,13 +4,35 @@ Aplicación web para organizar y **usar en vivo** el día de la boda: itinerario
 se ilumina solo según la hora, buscador de mesas, plano del salón, sección de los
 novios y un QR para que los invitados suban fotos.
 
-Paleta tomada del moodboard de la boda, muestreada pixel a pixel de la tira de
-colores (no estimada a ojo): salvia `#8a8d7a`, mantequilla `#eed7ad`, mostaza
-`#ce9138`, terracota `#c0582b`, coral empolvado `#c86860`, frambuesa `#c4485a`,
-borgoña `#861b2d` y oliva `#545a3c`. El coral empolvado no alcanza 4.5:1 de
-contraste con texto blanco ni oscuro, así que se usa solo como adorno y nunca
-como fondo de un texto; los fondos con texto usan la terracota oscurecida
-(`#ab4c23`). Todo vive en los tokens de `:root` en `assets/css/estilo.css`.
+Paleta **"Tropical + Bright"**, sobre fondo claro (`#FCFAFB`). Los seis colores
+vienen escritos en la lámina de referencia y los confirmé muestreando el pixel de
+cada barra; las diferencias de 1-3 unidades entre lo declarado y lo muestreado
+son compresión del JPEG, así que manda lo declarado:
+
+| Color | Hex | Pantone |
+|---|---|---|
+| Fucsia | `#E21776` | 213 C |
+| Coral | `#FF585F` | 178 C |
+| Naranja | `#FF9133` | 1495 C |
+| Amarillo | `#F9D900` | 107 C |
+| Salvia | `#96A797` | 5635 C |
+| Verde bosque | `#275937` | 357 C |
+
+Reglas de contraste, medidas y no estimadas:
+
+- El **coral** no llega a 4.5:1 ni con texto blanco (3.08) ni con texto oscuro
+  (4.04): se usa solo como adorno —filos, bordes, flores— y nunca como fondo de
+  un texto.
+- El **fucsia** sobre fondo claro da 4.38: sirve para cifras y títulos grandes,
+  pero el texto chico usa `--fucsia-osc` (`#C1145F`, 5.72).
+- El **naranja** puro solo lleva texto oscuro (5.54). Para fondo con texto blanco
+  va `--naranja-osc` (`#B3560A`, 4.94), que además es legible sobre el fondo
+  claro (4.75) y por eso se usa en los enlaces.
+
+Todo vive en los tokens de `:root` en `assets/css/estilo.css`. El patrón floral
+del fondo (peonías, rosas, racimos, craspedias y ramas de eucalipto) está
+dibujado a mano en [`assets/img/patron-flores.svg`](assets/img/patron-flores.svg)
+con esos mismos seis colores.
 
 Sin frameworks, sin `npm install`, sin build. Son archivos estáticos: se abren
 directo en el navegador o se publican en cualquier hosting.
@@ -47,7 +69,7 @@ Lo que sí o sí hay que completar:
 - **Portada** con cuenta regresiva en vivo; el mismo día cambia a "¡Hoy es el día!".
 - **Nosotros**: foto (o degradado con las iniciales si aún no hay foto), la
   historia en párrafos y tarjetitas cortas.
-- **Itinerario**: el día del evento marca en terracota y frambuesa lo que está pasando **ahora**,
+- **Itinerario**: el día del evento marca en fucsia y naranja lo que está pasando **ahora**,
   atenúa lo ya pasado, etiqueta lo que viene y muestra arriba un aviso del tipo
   *"Ahora: Primer baile · en 20 min, Torta y postres"*. Se refresca solo cada 30 s.
 - **Mesas**: buscador que ignora tildes y mayúsculas (escribir `jose` encuentra

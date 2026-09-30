@@ -448,7 +448,7 @@
     opciones = opciones || {};
     var margen = opciones.margen == null ? 4 : opciones.margen;
     var claro = opciones.claro || "#ffffff";
-    var oscuro = opciones.oscuro || "#33261f";
+    var oscuro = opciones.oscuro || "#275937";
     var m = matriz(texto, opciones);
     var tam = m.length + margen * 2;
 

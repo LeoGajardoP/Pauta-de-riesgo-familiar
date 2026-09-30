@@ -1,34 +1,82 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240">
-  <!-- Patrón de fondo para la portada y el cartel: florecillas y hojas sueltas
-       en los colores del moodboard. Se repite en mosaico de 240x240. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 280" width="280" height="280">
+  <!-- Patrón de fondo, dibujado siguiendo el arreglo floral de la paleta
+       "Tropical + Bright": peonías fucsia, rosas coral, racimos naranjos,
+       craspedias amarillas y ramas de eucalipto en salvia y verde bosque.
+       Se repite en mosaico de 280x280. -->
   <defs>
-    <g id="flor">
-      <circle cx="0" cy="-7" r="5"/><circle cx="6.7" cy="-2.2" r="5"/>
-      <circle cx="4.1" cy="5.7" r="5"/><circle cx="-4.1" cy="5.7" r="5"/>
-      <circle cx="-6.7" cy="-2.2" r="5"/>
+    <!-- Peonía: corola de pétalos redondos y un corazón más apretado -->
+    <g id="peonia">
+      <g opacity=".9">
+        <circle cx="0"    cy="-9"   r="6.4"/><circle cx="8.6"  cy="-2.8" r="6.4"/>
+        <circle cx="5.3"  cy="7.3"  r="6.4"/><circle cx="-5.3" cy="7.3"  r="6.4"/>
+        <circle cx="-8.6" cy="-2.8" r="6.4"/>
+      </g>
+      <circle cx="0" cy="0" r="5.6" opacity=".55"/>
+      <circle cx="0" cy="0" r="2.4" opacity=".35"/>
     </g>
-    <path id="hoja" d="M0 0c7-9 18-11 24-9 1 7-4 17-13 20-6 2-11 0-11-11z"/>
+
+    <!-- Rosa de jardín: tres anillos concéntricos -->
+    <g id="rosa">
+      <circle cx="0" cy="0" r="10" opacity=".85"/>
+      <circle cx="0" cy="0" r="6.4" opacity=".55"/>
+      <circle cx="0" cy="0" r="3"  opacity=".45"/>
+    </g>
+
+    <!-- Flor abierta de seis pétalos -->
+    <g id="flor">
+      <g>
+        <ellipse cx="0" cy="-7" rx="3.4" ry="6"/>
+        <ellipse cx="6.1" cy="-3.5" rx="3.4" ry="6" transform="rotate(60 6.1 -3.5)"/>
+        <ellipse cx="6.1" cy="3.5"  rx="3.4" ry="6" transform="rotate(120 6.1 3.5)"/>
+        <ellipse cx="0" cy="7" rx="3.4" ry="6"/>
+        <ellipse cx="-6.1" cy="3.5" rx="3.4" ry="6" transform="rotate(60 -6.1 3.5)"/>
+        <ellipse cx="-6.1" cy="-3.5" rx="3.4" ry="6" transform="rotate(120 -6.1 -3.5)"/>
+      </g>
+    </g>
+
+    <!-- Racimo tipo asclepia: muchas florecitas juntas -->
+    <g id="racimo">
+      <circle cx="0"  cy="0"  r="3"/><circle cx="6"   cy="-2" r="2.6"/>
+      <circle cx="-6" cy="-2" r="2.6"/><circle cx="3"  cy="5"  r="2.6"/>
+      <circle cx="-3" cy="5"  r="2.6"/><circle cx="0"  cy="-6" r="2.6"/>
+    </g>
+
+    <!-- Craspedia: la bolita amarilla con tallo -->
+    <g id="craspedia">
+      <path d="M0 5 C 0 12, 1 16, 2 20" stroke="#275937" stroke-width="1.4" fill="none" opacity=".7"/>
+      <circle cx="0" cy="0" r="5"/>
+    </g>
+
+    <!-- Rama de eucalipto: hojas redondas alternadas -->
+    <g id="rama">
+      <path d="M0 0 C 10 2, 20 6, 30 12" stroke="currentColor" stroke-width="1.6" fill="none" opacity=".75"/>
+      <ellipse cx="7"  cy="-2" rx="5.4" ry="4.4" transform="rotate(-18 7 -2)"/>
+      <ellipse cx="16" cy="9"  rx="5.4" ry="4.4" transform="rotate(26 16 9)"/>
+      <ellipse cx="22" cy="2"  rx="4.8" ry="3.9" transform="rotate(-8 22 2)"/>
+      <ellipse cx="30" cy="13" rx="4.6" ry="3.7" transform="rotate(32 30 13)"/>
+    </g>
+
+    <!-- Un limón, que en la foto hay varios -->
+    <g id="limon">
+      <ellipse cx="0" cy="0" rx="8" ry="5.6" transform="rotate(-22)"/>
+      <path d="M7.4 -3.2 l3.2 -1.4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+    </g>
   </defs>
 
-  <g opacity=".85">
-    <use href="#flor" x="36"  y="34"  fill="#ce9138"/>
-    <circle cx="36" cy="34" r="3.2" fill="#8a5f1f"/>
-
-    <use href="#flor" x="176" y="58"  fill="#c4485a" transform="rotate(18 176 58)"/>
-    <circle cx="176" cy="58" r="3.2" fill="#861b2d"/>
-
-    <use href="#flor" x="96"  y="150" fill="#c0582b" transform="rotate(-22 96 150)"/>
-    <circle cx="96" cy="150" r="3.2" fill="#7d3517"/>
-
-    <use href="#flor" x="206" y="184" fill="#ce9138" transform="rotate(30 206 184)"/>
-    <circle cx="206" cy="184" r="3.2" fill="#8a5f1f"/>
-
-    <use href="#flor" x="18"  y="196" fill="#c86860" transform="rotate(12 18 196)"/>
-    <circle cx="18" cy="196" r="3" fill="#a3413c"/>
-
-    <use href="#hoja" x="0" y="0" fill="#8a8d7a" transform="translate(118 26) rotate(-35)"/>
-    <use href="#hoja" x="0" y="0" fill="#545a3c" transform="translate(52 104) rotate(148)"/>
-    <use href="#hoja" x="0" y="0" fill="#8a8d7a" transform="translate(196 122) rotate(56)"/>
-    <use href="#hoja" x="0" y="0" fill="#545a3c" transform="translate(140 214) rotate(-118)"/>
+  <g opacity=".92">
+    <use href="#peonia"    x="38"  y="40"  fill="#E21776"/>
+    <g color="#96A797" fill="#96A797"><use href="#rama" transform="translate(150 22) rotate(-12)"/></g>
+    <use href="#craspedia" x="248" y="52"  fill="#F9D900"/>
+    <use href="#racimo"    x="212" y="104" fill="#FF9133"/>
+    <use href="#rosa"      x="96"  y="118" fill="#FF585F"/>
+    <g color="#275937" fill="#275937"><use href="#rama" transform="translate(16 140) rotate(148)"/></g>
+    <use href="#flor"      x="164" y="166" fill="#E21776" transform="rotate(14 164 166)"/>
+    <g color="#F9D900" fill="#F9D900"><use href="#limon" transform="translate(58 206)"/></g>
+    <use href="#peonia"    x="238" y="214" fill="#FF585F"/>
+    <use href="#racimo"    x="126" y="248" fill="#FF9133"/>
+    <g color="#96A797" fill="#96A797"><use href="#rama" transform="translate(196 258) rotate(-148)"/></g>
+    <use href="#craspedia" x="18"  y="82"  fill="#F9D900"/>
+    <use href="#flor"      x="276" y="152" fill="#FF9133"/>
+    <use href="#flor"      x="-4"  y="152" fill="#FF9133"/>
   </g>
 </svg>
